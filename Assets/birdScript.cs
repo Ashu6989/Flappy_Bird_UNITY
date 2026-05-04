@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BirdScript : MonoBehaviour
 {
@@ -11,13 +12,19 @@ public class BirdScript : MonoBehaviour
     }
 
     void Update()
+{
+    if (Input.GetKeyDown(KeyCode.Space))
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Jump triggered");
-            rb.velocity = Vector2.up * jumpForce; 
-        }
+        rb.velocity = Vector2.up * jumpForce;
     }
+
+    if (Input.GetKeyDown(KeyCode.R))
+    {
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Game Over");

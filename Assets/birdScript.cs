@@ -21,6 +21,7 @@ public class BirdScript : MonoBehaviour
     if (Input.GetKeyDown(KeyCode.R))
     {
         Time.timeScale = 1;
+        PipeMove.globalSpeed = 2f;
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
     }
